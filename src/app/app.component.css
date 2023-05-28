@@ -1,0 +1,9 @@
+ .menu{
+    display: flex;
+ }
+ .menu p {
+    margin: 0 30px;
+ }
+ a{
+    text-decoration: none;
+ }

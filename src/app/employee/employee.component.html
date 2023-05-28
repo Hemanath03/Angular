@@ -1,0 +1,25 @@
+<p>employee works!</p>
+<div class="container mt-5">
+    <h2 class="text-center bg-primary px-2">Template Driven form</h2>
+    <form #profileform="ngForm" (ngSubmit)="submitform(profileform)">
+       <div>
+            <label for="" class="form-label">Name</label>
+
+            <input type="text" class="form-control" name="uname" required pattern="[a-z]{3,20}"
+            #fname="ngModel" [(ngModel)]="profile.user" 
+            [ngClass]="{'red-border-class':fname.errors}">
+
+            <span *ngIf="fname.invalid && (fname.touched || fname.dirty)">
+                <span *ngIf="fname.errors?.['required']">
+                    please enter your Name
+                </span>
+                <span *ngIf="fname.errors?.['pattern']">
+                    invalid Name
+                </span>
+            </span>
+       </div>
+       <input type="submit" value="Register" [disabled]="profileform.invalid">
+    </form>
+ 
+     
+</div>

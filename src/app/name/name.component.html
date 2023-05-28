@@ -1,0 +1,61 @@
+<p>name works!</p>
+<div class="container">
+    <div>
+        <form [formGroup]="profileform" (ngSubmit)="submitform()">
+            <div formGroupName="personal">
+                <div>
+                    <label for="fname" class="form-label">First Name</label>
+                    <input type="text" id="fname" class="form-control" formControlName="first"
+                    required pattern="[a-z]{3,10}">
+                    <span *ngIf="uname?.invalid && (uname?.touched || uname?.dirty)">
+                        <span *ngIf="uname?.errors?.['required']">
+                            Enter your Name
+                        </span>
+                        <span *ngIf="uname?.errors?.['pattern']">
+                            Invalid Name
+                        </span>
+                    </span>
+                </div> 
+                <div>
+                    <label for="lname" class="form-label">Last Name</label>
+                    <input type="text" class="form-control" required pattern="[a-zA-Z]{3,10}"
+                    formControlName="last">
+                    <span *ngIf="last?.invalid && (last?.touched || last?.dirty)">
+                        <span *ngIf="last?.errors?.['required']">
+                            Enter your Last Name
+                        </span>
+                        <span *ngIf="last?.errors?.['pattern']">
+                            Invalid Name
+                        </span>
+                    </span>
+                </div>
+                <div>
+                    <label for="email" class="form-label">Email</label>
+                    <input type="text" id="email" class="form-control" required email formControlName="email">
+                    <span *ngIf="email?.invalid && (email?.touched || email?.dirty)">
+                        <span *ngIf="email?.errors?.['required']">
+                            Enter your Email
+                        </span>
+                        <span *ngIf="email?.errors?.['email']">
+                            Invalid Email
+                        </span>
+                    </span>
+                </div>
+            </div>
+            <div>
+                <div formArrayName="skills">
+                    <h4>Skills</h4>
+                    <input type="button" value="add kills" class="btn btn-warning" (click)="addskills()">
+                    <div class="input-group mt-2 w-25" *ngFor="let c of course.controls;let i=index">
+                        <input type="text" class="form-control" placeholder="skills {{i+1}}" [formControlName]="i">
+                        <input type="button" value="X" class="btn btn-danger" (click)="removeskills(i)">
+                    </div>
+                </div>
+            </div>
+            <div>
+                <button type="submit" class="btn btn-primary mt-3" [disabled]="profileform.invalid" >Add</button>
+                <button type="button" class="btn btn-danger mt-3 ms-4" (click)="clear()">Clear</button>
+            </div>
+        </form>
+    </div>
+</div>

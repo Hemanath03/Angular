@@ -1,0 +1,33 @@
+<p>style works!</p>
+<div class="container">
+    <div class="row">
+        <div class="col-3 bg-light">
+             
+                <div>
+                    <label for="" class="form-label">Color :</label>
+                    <input type="color" [(ngModel)]="col" class="form-control">
+                </div>
+                <div>
+                    <label for="" class="form-label">Font Size :</label>
+                    <input type="text" [(ngModel)]="fs" class="form-control">
+                </div>
+                <div>
+                    <label for="" class="form-label">Background color :</label>
+                    <input type="text" [(ngModel)]="bg" class="form-control">
+                </div>
+                <div>
+                    <label for="" class="form-label">Font Family :</label>
+                    <input type="text" [(ngModel)]="ff" class="form-control">
+                </div>
+                <div>
+                    <label for="" class="form-label">Font Weight :</label>
+                    <input type="text" [(ngModel)]="fw" class="form-control">
+                </div>
+             
+        </div>
+        <div class="col-6">
+            <p class="h3"[ngStyle]="{'color':col,'font-size':fs,'Background-color':bg,'font-weight':fw,'font-family':ff}">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Debitis repudiandae vel nam ratione ipsam aperiam error voluptates iste itaque tempore, ab sed sit asperiores autem. Ea inventore accusamus voluptas? Ab.</p>
+        </div>
+    </div>
+</div>
+
